@@ -1,0 +1,38 @@
+<div class="register-container">
+    <div class="register-content">
+      <div class="register-form">
+        <h2>Registration</h2>
+        <form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <input type="text" id="name" name="name" placeholder="Name" formControlName="name" required>
+            <span class="input-icon">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="Email" formControlName="email" required>
+            <span class="input-icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+          <div class="input-group">
+            <input type="text" id="username" name="username" placeholder="Username" formControlName="username" required>
+            <span class="input-icon">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" name="password" placeholder="Password" formControlName="password" required>
+            <span class="input-icon">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div class="pizza-image">
+        <img src="/assets/images/pizza.jpg" alt="Pizza Image">
+      </div>
+    </div>
+  </div>
+  

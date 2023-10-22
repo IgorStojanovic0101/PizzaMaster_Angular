@@ -1,7 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+
+
+const routes: Routes = [
+
+
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth-routing/auth-routing.module').then((m) => m.AuthRoutingModule),
+  },
+  {
+    path: 'menu',
+    loadChildren: () =>
+      import('./modules/menu-routing/home-routing.module').then((m) => m.HomeRoutingModule),
+
+  },
+
+
+  { path: '', redirectTo: 'auth', pathMatch: 'full' }, // Redirect to 'auth' module
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
