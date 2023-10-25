@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of, switchMap, tap } from 'rxjs';
@@ -26,14 +26,10 @@ export class MenuBarToolbarComponent {
   ngOnInit(): void {
    
    this.homeService.GetAllRestorans().pipe(
-       tap((response) => {
-         this.restorans$ = of(response.payload);
-       }),
+       tap((response =>this.restorans$ = of(response.payload))),
      
     ).subscribe();
 
-  
-  
   }
   stopSliding()
   {
@@ -45,5 +41,11 @@ export class MenuBarToolbarComponent {
   badgevisible = false;
   badgevisibility() {
     this.badgevisible = true;
+  }
+
+  @Output() triggerParent = new EventEmitter<void>();
+
+  triggerParentFunction() {
+    this.triggerParent.emit();
   }
 }

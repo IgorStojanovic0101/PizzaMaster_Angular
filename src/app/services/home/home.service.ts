@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, share, tap } from 'rxjs';
 import { ServiceResponse } from 'src/app/shared/client/serviceResponse';
 import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO';
 import { MasterService } from '../master/master.service';
@@ -18,7 +18,12 @@ export class HomeService {
     return this.service.GetAllRestorans<RestoranResponseDTO[]>().pipe(
       tap(resp => this.restoranSource.next(resp))
     );
+
+
+    
   }
+
+  
 
  
 }

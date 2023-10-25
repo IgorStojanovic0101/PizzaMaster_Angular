@@ -17,6 +17,11 @@ import { ErrorInterceptor } from './infrastructure/interceptors/error.intercepto
 import { HomeComponent } from './components/home/home.component';
 import { MenuBarToolbarComponent } from './components/menu-bar/menu-bar-toolbar/menu-bar-toolbar.component';
 import { BootstrapModule } from './modules/bootstrap/bootstrap.module';
+import { RowOneComponent } from './components/home/row-one/row-one.component';
+import { RowTwoComponent } from './components/home/row-two/row-two.component';
+import { RowThreeComponent } from './components/home/row-three/row-three.component';
+import { RowFourComponent } from './components/home/row-four/row-four.component';
+import { RowFiveComponent } from './components/home/row-five/row-five.component';
 
 
 
@@ -29,7 +34,13 @@ import { BootstrapModule } from './modules/bootstrap/bootstrap.module';
     MenuBarComponent,
     MenuBarComponent,
     HomeComponent,
-    MenuBarToolbarComponent
+    MenuBarToolbarComponent,
+    RowOneComponent,
+    RowTwoComponent,
+    RowThreeComponent,
+    RowFourComponent,
+    RowFiveComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -39,6 +50,9 @@ import { BootstrapModule } from './modules/bootstrap/bootstrap.module';
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule,    
     ReactiveFormsModule,
+  
+
+  
     
     //-------
     MaterialModule,

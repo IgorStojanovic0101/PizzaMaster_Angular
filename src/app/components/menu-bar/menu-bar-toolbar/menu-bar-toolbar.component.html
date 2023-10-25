@@ -3,9 +3,9 @@
 
 
 <mat-toolbar-row class="toolbar-row1">
-    <!-- <button (click)="drawer.toggle()" mat-icon-button>
+    <button (click)="triggerParentFunction()" mat-icon-button>
         <mat-icon>menu</mat-icon>
-    </button> -->
+    </button>
     <span>Material UI Tutorial</span>
 
     <div *ngIf="(restorans$ | async) as restorans" style="display: flex; padding-left: 2%;" >

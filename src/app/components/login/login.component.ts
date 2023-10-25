@@ -17,7 +17,7 @@ import { UserLoginResponseDTO } from 'src/app/shared/user/userLoginResponseDTO';
 export class LoginComponent {
 
   LoginForm:any =  FormGroup;
-  user$!:Observable<ServiceResponse<UserLoginResponseDTO> | null>;
+  user$!:Observable<UserLoginResponseDTO>;
 
   constructor(private userService:UserService,private fb:FormBuilder, private router:Router, private commServ:MasterService,private toastr: ToastrService) { }
 
@@ -44,28 +44,22 @@ export class LoginComponent {
      
 
       this.userService.UserLogin(formData).pipe(
-         tap((userResponse) => {
-           this.user$ = of(userResponse); 
-         }),
-        switchMap((userResponse) => {
+         tap((userResponse) => this.user$ = of(userResponse.payload)),
+         switchMap((userResponse) => {
           if (!userResponse) {
             return of(null);
           }
-        
+      
           if (!userResponse.validation) {
-
             localStorage.setItem('token', userResponse.payload.token);
-            
             this.toastr.success('Uspesno');
-
           } else {
             this.toastr.warning('Validacija', userResponse.errors.join('\n'));
           }
-          
+      
           return of(userResponse);
         })
       ).subscribe();
-
  
     }
   

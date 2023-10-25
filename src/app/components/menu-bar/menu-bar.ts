@@ -1,5 +1,5 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatDrawer, MatSidenav } from '@angular/material/sidenav';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { HomeService } from 'src/app/services/home/home.service';
@@ -38,26 +38,9 @@ export class MenuBarComponent {
   isShowing = false;
   showSubSubMenu: boolean = false;
   opened = false;
-  restorans$!:Observable<RestoranResponseDTO[] | null>;
-
-  constructor(private homeService : HomeService,private toastr: ToastrService) {}
 
 
 
-
-  ngOnInit(): void {
-   
-   this.homeService.GetAllRestorans().pipe(
-       tap((response) => {
-         this.restorans$ = of(response.payload);
-         console.log(response.payload)
-       }),
-     
-    ).subscribe();
-
-  
-  
-  }
   stopSliding()
   {
     this.opened=!this.opened;
@@ -82,4 +65,16 @@ export class MenuBarComponent {
   badgevisibility() {
     this.badgevisible = true;
   }
+
+  parentFunction() {
+    // Implement the functionality you want to execute in the parent component.
+    console.log('Parent function was triggered by the child component');
+  }
+  @ViewChild('drawer') drawer: MatDrawer | undefined;
+
+  toggleDrawer() {
+    if (this.drawer) {
+      this.drawer.toggle();
+      }
+    }
 }
