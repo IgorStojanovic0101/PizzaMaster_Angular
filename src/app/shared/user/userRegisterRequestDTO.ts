@@ -3,4 +3,5 @@ export interface UserRegisterRequestDTO {
     email: string;
     username: string;
     password: string;
+    file : File;
 }

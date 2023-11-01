@@ -22,7 +22,7 @@ import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO
   .mat-sidenav
   {
   width: 25%;
-  background-color: cornflowerblue;
+  background-color: blue;
   position: fixed;
   }
   

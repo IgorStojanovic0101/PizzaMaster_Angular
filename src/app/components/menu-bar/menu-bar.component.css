@@ -6,3 +6,9 @@
 {
   background-color: #24292e;
 }
+
+.drawer {
+  background-color: #007ACC; 
+  width: 15%;
+  /* You can customize the background color as needed */
+}

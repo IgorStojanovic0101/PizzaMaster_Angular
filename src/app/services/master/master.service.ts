@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserLoginRequestDTO } from 'src/app/shared/user/userLoginRequestDTO';
 import { UserLoginResponseDTO } from 'src/app/shared/user/userLoginResponseDTO';
@@ -7,6 +7,10 @@ import { UserRegisterResponseDTO } from 'src/app/shared/user/userRegisterRespons
 import { UserRegisterRequestDTO } from 'src/app/shared/user/userRegisterRequestDTO';
 import { URLs } from 'src/app/infrastructure/urls';
 import { ServiceResponse } from 'src/app/shared/client/serviceResponse';
+import { Admin_RequestDTO } from 'src/app/shared/admin/admin_RequestDTO';
+import { Admin_ResponseDTO } from 'src/app/shared/admin/admin_ResponseDTO';
+import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO';
+import { HomeDescriptionResponseDTO } from 'src/app/shared/home/homeDescription_ResponseDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +20,34 @@ export class MasterService {
   constructor(private http: HttpClient) { }
 
 
-  UserLogin(val:UserLoginRequestDTO):Observable<UserLoginResponseDTO>{
-    return this.http.post<UserLoginResponseDTO>(URLs.User.Login,val);
-  }
-
-  login<T>(formData: UserLoginRequestDTO): Observable<ServiceResponse<T>> {
-    return this.http.post<ServiceResponse<T>>(URLs.User.Login, formData);
-  }
-  UserRegister(val:UserRegisterRequestDTO):Observable<UserRegisterResponseDTO>{
-    return this.http.post<UserRegisterResponseDTO>(URLs.User.Register,val);
-  }
-  register<T>(formData: UserRegisterRequestDTO): Observable<ServiceResponse<T>> {
-    return this.http.post<ServiceResponse<T>>(URLs.User.Register, formData);
-  }
 
 
-  GetAllRestorans<T>(): Observable<ServiceResponse<T>> {
-    return this.http.get<ServiceResponse<T>>(URLs.Restoran.ListaRestorana);
+  login(dto: UserLoginRequestDTO): Observable<ServiceResponse<UserLoginResponseDTO>> {
+    const formData = new FormData();
+    formData.append('username', dto.username);
+    formData.append('password', dto.password);
+
+    return this.http.post<ServiceResponse<UserLoginResponseDTO>>(URLs.User.Login, formData);
+  }
+
+  register(formData: FormData): Observable<ServiceResponse<UserRegisterResponseDTO>> {
+    return this.http.post<ServiceResponse<UserRegisterResponseDTO>>(URLs.User.Register, formData);
+  }
+
+  
+  GetAllRestorans(): Observable<ServiceResponse<RestoranResponseDTO[]>> {
+    return this.http.get<ServiceResponse<RestoranResponseDTO[]>>(URLs.Restoran.ListaRestorana);
+  }
+
+  SetAdminImport<Admin_ResponseDTO>(val: FormData): Observable<ServiceResponse<Admin_ResponseDTO>> {
+    const headers = new HttpHeaders();
+    //headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ServiceResponse<Admin_ResponseDTO>>(URLs.Admin.SetAdminData,val);
+  }
+
+  GetHomeDescription():Observable<ServiceResponse<HomeDescriptionResponseDTO[]>>
+  {
+    return this.http.get<ServiceResponse<HomeDescriptionResponseDTO[]>>(URLs.Home.GetHomeDescription);
   }
 
  

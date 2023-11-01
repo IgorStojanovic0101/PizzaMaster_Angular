@@ -1,0 +1,5 @@
+<p>admin works!</p>
+<input type="file"  (change)="CategoryImageUpload($event)" class="inp">
+<img src="" height="300px" width="300px" alt="Uploaded Image" #imagePreview>
+<input type="text" [(ngModel)]="additionalData.text" placeholder="Name">
+<button (click)="uploadImage()">Upload Image</button>

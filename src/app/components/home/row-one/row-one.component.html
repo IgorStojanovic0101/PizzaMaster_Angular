@@ -1,19 +1,9 @@
 <div class="row1">
-
-    <ngb-carousel [interval]="interval" #carousel>
-     
-       <ng-template ngbSlide *ngFor="let reklama of reklame">
-     
-         <div class="wrapper">
-     
-           <img [src]="reklama.src" alt="Random first slide">
-     
-         </div>
-     
-         
-     
-       </ng-template>
-     
-     </ngb-carousel>
- 
+  <ngb-carousel [interval]="interval" #carousel>
+    <ng-template ngbSlide *ngFor="let item of (homeDesc$ | async)">
+      <div class="wrapper">
+        <img [src]="item.imageContent" alt="Random first slide">
+      </div>
+    </ng-template>
+  </ngb-carousel>
 </div>

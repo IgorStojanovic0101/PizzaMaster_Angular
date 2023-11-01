@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +22,12 @@ import { RowTwoComponent } from './components/home/row-two/row-two.component';
 import { RowThreeComponent } from './components/home/row-three/row-three.component';
 import { RowFourComponent } from './components/home/row-four/row-four.component';
 import { RowFiveComponent } from './components/home/row-five/row-five.component';
-
+import { RowSixComponent } from './components/home/row-six/row-six.component';
+import { FooterComponent } from './components/menu-bar/footer/footer.component';
+import { RestoranComponent } from './components/restoran/restoran.component';
+import { LoaderInterceptor } from './infrastructure/interceptors/loader.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { AdminComponent } from './components/admin/admin.component';
 
 
 
@@ -40,6 +45,10 @@ import { RowFiveComponent } from './components/home/row-five/row-five.component'
     RowThreeComponent,
     RowFourComponent,
     RowFiveComponent,
+    RowSixComponent,
+    FooterComponent,
+    RestoranComponent,
+    AdminComponent,
     
   ],
   imports: [
@@ -50,6 +59,7 @@ import { RowFiveComponent } from './components/home/row-five/row-five.component'
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule,    
     ReactiveFormsModule,
+    NgxSpinnerModule,
   
 
   
@@ -69,9 +79,16 @@ import { RowFiveComponent } from './components/home/row-five/row-five.component'
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true,
+    },
+    { provide: HTTP_INTERCEPTORS, 
+      useClass: LoaderInterceptor, 
+      multi: true 
     }
+
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  
 })
 export class AppModule { }

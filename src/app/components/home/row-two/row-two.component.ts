@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable, Subscription, tap, of } from 'rxjs';
+import { HomeService } from 'src/app/services/home/home.service';
+import { ServiceResponse } from 'src/app/shared/client/serviceResponse';
+import { HomeDescriptionResponseDTO } from 'src/app/shared/home/homeDescription_ResponseDTO';
 
 @Component({
   selector: 'app-row-two',
@@ -6,6 +10,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./row-two.component.css']
 })
 export class RowTwoComponent {
+
+
+  homeDesc$!: Observable<HomeDescriptionResponseDTO[]>;
+
+  private homeDescSub!: Subscription;
+
+  constructor(public service : HomeService) {}
+
+  
+  ngOnInit(): void {
+
+    this.homeDescSub = this.service.GetHomeDescription().pipe(
+      tap((response:ServiceResponse<HomeDescriptionResponseDTO[]>) => this.handleHomeDescResponse(response))
+      ).subscribe();
+
+  }
+  ngOnDestroy() {
+    console.log("Unsubscribed!")
+    this.homeDescSub.unsubscribe();
+  }
+
+  private handleHomeDescResponse(userResponse: ServiceResponse<HomeDescriptionResponseDTO[]>) {
+    console.log(userResponse.payload)
+    this.homeDesc$ = of(userResponse.payload);
+  }
+
+
+
+
   title1 = 'Title 1';
   text1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
   title2 = 'Title 2';

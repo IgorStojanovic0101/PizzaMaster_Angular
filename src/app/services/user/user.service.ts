@@ -25,13 +25,13 @@ export class UserService {
   constructor(private service:MasterService) { }
 
   UserLogin(val: UserLoginRequestDTO): Observable<ServiceResponse<UserLoginResponseDTO>> {
-    return this.service.login<UserLoginResponseDTO>(val).pipe(
+    return this.service.login(val).pipe(
       tap(resp => this.userLoginSource.next(resp))
     );
   }
   
-  UserRegister(val: UserRegisterRequestDTO): Observable<ServiceResponse<UserRegisterResponseDTO>> {
-    return this.service.register<UserRegisterResponseDTO>(val).pipe(
+  UserRegister(val: FormData): Observable<ServiceResponse<UserRegisterResponseDTO>> {
+    return this.service.register(val).pipe(
       tap(resp => this.userRegisterSource.next(resp))
     );
   }

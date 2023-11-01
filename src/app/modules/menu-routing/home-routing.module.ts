@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuBarComponent } from 'src/app/components/menu-bar/menu-bar';
 import { HomeComponent } from 'src/app/components/home/home.component';
-
+import { RestoranComponent } from 'src/app/components/restoran/restoran.component';
 
 const homeRoutes: Routes = [
   {
@@ -17,7 +17,10 @@ const homeRoutes: Routes = [
       },
       {
         path: "home",
-        component: HomeComponent
+        component: HomeComponent,
+      },
+      {
+        path: "restoran", component: RestoranComponent,
       }
     ]
   }

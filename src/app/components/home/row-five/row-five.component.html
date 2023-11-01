@@ -1,0 +1,10 @@
+<video #videoPlayer width="640" height="360">
+    <source [src]="videoSource" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <div>
+    <button (click)="playVideo()">Play</button>
+    <button (click)="pauseVideo()">Pause</button>
+    <button (click)="stopVideo()">Stop</button>
+  </div>

@@ -19,4 +19,18 @@ export class URLs
           ListaRestorana: `${pref}/ListaRestorana` 
         };
     }
+    public static get Admin() {
+        const pref = `${URLs.ApiUrl}/Admin`;
+        
+        return {  
+            SetAdminData: `${pref}/SetAdminData` 
+        };
+    }
+
+    public static get Home() {
+        const pref = `${URLs.ApiUrl}/Home`;
+        return {  
+            GetHomeDescription: `${pref}/GetHomeDescription` 
+          };
+    }
 }

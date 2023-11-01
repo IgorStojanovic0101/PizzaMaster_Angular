@@ -17,7 +17,13 @@ const routes: Routes = [
       import('./modules/menu-routing/home-routing.module').then((m) => m.HomeRoutingModule),
 
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin-routing/admin-routing.module').then((m) => m.AdminRoutingModule),
 
+  },
+  
 
   { path: '', redirectTo: 'auth', pathMatch: 'full' }, // Redirect to 'auth' module
 ];

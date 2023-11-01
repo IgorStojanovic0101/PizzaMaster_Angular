@@ -1,0 +1,50 @@
+.blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .blog-section {
+    display: flex;
+  }
+  
+  .blog-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    margin-right: 20px;
+  }
+  
+  .blog-left img {
+    width: 100%; /* Set both width and height to 100% for equal size */
+    height: 550px;
+  }
+  
+  .blog-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+  }
+  
+  .blog-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content vertically */
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  .blog-item img {
+    width: 200px; /* Set both width and height to 100% for equal size */
+    height: 150px;
+  }
+  
+  .image-text,
+  .item-text {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
