@@ -11,6 +11,7 @@ import { Admin_RequestDTO } from 'src/app/shared/admin/admin_RequestDTO';
 import { Admin_ResponseDTO } from 'src/app/shared/admin/admin_ResponseDTO';
 import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO';
 import { HomeDescriptionResponseDTO } from 'src/app/shared/home/homeDescription_ResponseDTO';
+import { UserResponseDTO } from 'src/app/shared/user/user_ResponseDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,8 @@ export class MasterService {
     return this.http.get<ServiceResponse<HomeDescriptionResponseDTO[]>>(URLs.Home.GetHomeDescription);
   }
 
- 
+  GetTopUsers():Observable<ServiceResponse<UserResponseDTO[]>>
+  {
+    return this.http.get<ServiceResponse<UserResponseDTO[]>>(URLs.User.GetTopUsers);
+  }
 }

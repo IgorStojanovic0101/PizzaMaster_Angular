@@ -1,25 +1,10 @@
 <div class="our-team">
-    <h2>Our Team</h2>
-    <div class="team-members">
-      <div class="team-member">
-        <img src="assets/images/rek1.jpg" alt="Team Member 1" class="member-image">
-        <h3>John Doe</h3>
-        <p>Head Chef</p>
-      </div>
-      <div class="team-member">
-        <img src="assets/images/rek2.jpg" alt="Team Member 2" class="member-image">
-        <h3>Jane Smith</h3>
-        <p>Sous Chef</p>
-      </div>
-      <div class="team-member">
-        <img src="assets/images/rek3.jpg" alt="Team Member 3" class="member-image">
-        <h3>Bob Johnson</h3>
-        <p>Server</p>
-      </div>
-      <div class="team-member">
-        <img src="assets/images/rek5.jpg" alt="Team Member 4" class="member-image">
-        <h3>Alice Brown</h3>
-        <p>Bartender</p>
-      </div>
+  <h2>Our Team</h2>
+  <div class="team-members">
+    <div class="team-member" *ngFor="let user of (topUsers$ | async)">
+      <img [src]="user.imageContent" alt="Team Member" class="member-image">
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.username }}</p>
     </div>
   </div>
+</div>

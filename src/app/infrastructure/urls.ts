@@ -10,6 +10,7 @@ export class URLs
         return {  
          Login: `${pref}/Login`,
          Register: `${pref}/Register`,
+         GetTopUsers: `${pref}/GetTopUsers`
         };
     }
     public static get Restoran() {

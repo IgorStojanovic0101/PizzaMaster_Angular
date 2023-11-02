@@ -6,6 +6,7 @@ import { UserRegisterResponseDTO } from 'src/app/shared/user/userRegisterRespons
 import { UserLoginRequestDTO } from 'src/app/shared/user/userLoginRequestDTO';
 import { UserRegisterRequestDTO } from 'src/app/shared/user/userRegisterRequestDTO';
 import { ServiceResponse } from 'src/app/shared/client/serviceResponse';
+import { UserResponseDTO } from 'src/app/shared/user/user_ResponseDTO';
 
 
 @Injectable({
@@ -20,7 +21,8 @@ export class UserService {
   private userRegisterSource =  new BehaviorSubject<ServiceResponse<UserRegisterResponseDTO> | null >(null);
   register$ = this.userRegisterSource.asObservable();
 
-
+  private topUsersSource =  new BehaviorSubject<ServiceResponse<UserResponseDTO[]> | null >(null);
+  topUsers$ = this.topUsersSource.asObservable();
 
   constructor(private service:MasterService) { }
 
@@ -35,6 +37,13 @@ export class UserService {
       tap(resp => this.userRegisterSource.next(resp))
     );
   }
+
+  GetTopUsers(): Observable<ServiceResponse<UserResponseDTO[]>> {
+    return this.service.GetTopUsers().pipe(
+      tap(resp => this.topUsersSource.next(resp))
+    );
+  }
+
   DestroyUsers()
   {
     this.userLoginSource.next(null);
