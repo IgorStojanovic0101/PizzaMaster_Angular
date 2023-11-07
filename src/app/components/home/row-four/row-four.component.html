@@ -1,62 +1,31 @@
 <div class="our-recipes">
-    <h2>Our Recipes</h2>
-    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0px">
-      <!-- Recipe Card 1 -->
-      <mat-grid-tile>
-        <mat-card>
-          <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 1">
-          <mat-card-content>
-            <p>Recipe 1 Name</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-  
-      <!-- Recipe Card 2 -->
-      <mat-grid-tile>
-        <mat-card>
-          <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 2">
-          <mat-card-content>
-            <p>Recipe 2 Name</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-  
-          <!-- Recipe Card 3 -->
-          <mat-grid-tile>
-            <mat-card>
-              <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 2">
-              <mat-card-content>
-                <p>Recipe 3 Name</p>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
-              <!-- Recipe Card 4 -->
-      <mat-grid-tile>
-        <mat-card>
-          <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 2">
-          <mat-card-content>
-            <p>Recipe 4 Name</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>    <!-- Recipe Card 5 -->
-      <mat-grid-tile>
-        <mat-card>
-          <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 2">
-          <mat-card-content>
-            <p>Recipe 5 Name</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>    <!-- Recipe Card 6 -->
-      <mat-grid-tile>
-        <mat-card>
-          <img mat-card-image src="assets/images/pizza.jpg" alt="Recipe 2">
-          <mat-card-content>
-            <p>Recipe 6 Name</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>    
-    
-      <!-- Add more recipe cards for the remaining recipes -->
-    </mat-grid-list>
-  </div>
-  
+  <h2>Our Recipes</h2>
+  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0px">
+    <ng-container *ngFor="let item of (pizza$ | async); let i = index">
+      <!-- Display only the first 3 items from pizza$ -->
+      <ng-container *ngIf="i < 3">
+        <mat-grid-tile>
+          <mat-card>
+            <img mat-card-image [src]="item.imageContent || 'assets/images/pizza.jpg'" alt="Pizza Recipe {{i + 1}}">
+            <mat-card-content>
+              <p>{{ item.Name }}</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngFor="let item of (paste$ | async); let i = index">
+      <!-- Display only the first 3 items from pasta$ -->
+      <ng-container *ngIf="i < 3">
+        <mat-grid-tile>
+          <mat-card>
+            <img mat-card-image [src]="item.imageContent || 'assets/images/pasta.jpg'" alt="Pasta Recipe {{i + 1}}">
+            <mat-card-content>
+              <p>{{ item.Name }}</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-container>
+    </ng-container>
+  </mat-grid-list>
+</div>

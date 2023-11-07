@@ -15,6 +15,9 @@ export class HomeService {
   private homeDescSource = new BehaviorSubject<ServiceResponse<HomeDescriptionResponseDTO[]> | null >(null);
   homeDesc$ = this.homeDescSource.asObservable();
   
+  private videoSource = new BehaviorSubject<ServiceResponse<string> | null >(null);
+  video$ = this.homeDescSource.asObservable();
+
   constructor(private service: MasterService) { }
 
   GetAllRestorans() : Observable<ServiceResponse<RestoranResponseDTO[]>> 
@@ -29,6 +32,14 @@ export class HomeService {
   {
     return this.service.GetHomeDescription().pipe(
       tap(resp => this.homeDescSource.next(resp))
+    );
+    
+  }
+
+  GetVideo(): Observable<ServiceResponse<string>>
+  {
+    return this.service.GetVideo().pipe(
+      tap(resp => this.videoSource.next(resp))
     );
     
   }

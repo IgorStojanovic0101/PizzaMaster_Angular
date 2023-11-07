@@ -31,7 +31,18 @@ export class URLs
     public static get Home() {
         const pref = `${URLs.ApiUrl}/Home`;
         return {  
-            GetHomeDescription: `${pref}/GetHomeDescription` 
+            GetHomeDescription: `${pref}/GetHomeDescription`,
+            GetVideo: `${pref}/GetVideo` 
+            
           };
     }
+
+    public static get Proizvodi() {
+        const pref = `${URLs.ApiUrl}/Proizvodi`;
+        return {  
+            GetPizzaTypes: `${pref}/GetPizzaTypes`,
+            GetPastaTypes: `${pref}/GetPastaTypes`
+          };
+    }
+   
 }

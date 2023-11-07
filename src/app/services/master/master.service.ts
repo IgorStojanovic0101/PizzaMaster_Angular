@@ -12,6 +12,8 @@ import { Admin_ResponseDTO } from 'src/app/shared/admin/admin_ResponseDTO';
 import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO';
 import { HomeDescriptionResponseDTO } from 'src/app/shared/home/homeDescription_ResponseDTO';
 import { UserResponseDTO } from 'src/app/shared/user/user_ResponseDTO';
+import { PizzaType_ResponseDTO } from 'src/app/shared/proizvodi/pizzaType_ResponseDTO';
+import { PastaType_ResponseDTO } from 'src/app/shared/proizvodi/pastaType_ResponseDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +56,20 @@ export class MasterService {
   GetTopUsers():Observable<ServiceResponse<UserResponseDTO[]>>
   {
     return this.http.get<ServiceResponse<UserResponseDTO[]>>(URLs.User.GetTopUsers);
+  }
+
+   GetPizzaTypes():Observable<ServiceResponse<PizzaType_ResponseDTO[]>>
+  {
+    return this.http.get<ServiceResponse<PizzaType_ResponseDTO[]>>(URLs.Proizvodi.GetPizzaTypes);
+  }
+
+  GetPastaTypes():Observable<ServiceResponse<PastaType_ResponseDTO[]>>
+  {
+    return this.http.get<ServiceResponse<PastaType_ResponseDTO[]>>(URLs.Proizvodi.GetPastaTypes);
+  }
+
+  GetVideo():Observable<ServiceResponse<string>>
+  {
+    return this.http.get<ServiceResponse<string>>(URLs.Home.GetVideo);
   }
 }
