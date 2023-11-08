@@ -41,7 +41,8 @@ export class URLs
         const pref = `${URLs.ApiUrl}/Proizvodi`;
         return {  
             GetPizzaTypes: `${pref}/GetPizzaTypes`,
-            GetPastaTypes: `${pref}/GetPastaTypes`
+            GetPastaTypes: `${pref}/GetPastaTypes`,
+            GetTopProducts: `${pref}/GetTopProducts`
           };
     }
    

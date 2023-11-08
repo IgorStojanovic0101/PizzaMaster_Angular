@@ -19,7 +19,7 @@
   }
   
   .blog-left img {
-    width: 100%; /* Set both width and height to 100% for equal size */
+    width: 500px; /* Set both width and height to 100% for equal size */
     height: 550px;
   }
   

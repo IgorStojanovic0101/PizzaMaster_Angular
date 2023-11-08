@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable, Subscription, of, tap } from 'rxjs';
 import { HomeService } from 'src/app/services/home/home.service';
 import { ServiceResponse } from 'src/app/shared/client/serviceResponse';
@@ -35,6 +35,12 @@ export class RowOneComponent {
   private handleHomeDescResponse(userResponse: ServiceResponse<HomeDescriptionResponseDTO[]>) {
     console.log(userResponse.payload)
     this.homeDesc$ = of(userResponse.payload);
+  }
+
+  @Output() triggerParent = new EventEmitter<void>();
+
+  triggerParentFunction() {
+    this.triggerParent.emit();
   }
 
   reklame = [

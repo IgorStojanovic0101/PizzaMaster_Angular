@@ -48,4 +48,6 @@ export class MenuBarToolbarComponent {
   triggerParentFunction() {
     this.triggerParent.emit();
   }
+
+  
 }

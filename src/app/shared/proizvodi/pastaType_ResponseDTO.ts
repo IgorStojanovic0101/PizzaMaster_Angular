@@ -1,7 +1,7 @@
 export interface PastaType_ResponseDTO {
-    Name: string;
-    Description: string | null;
-    Price: number;
+    name: string;
+    description: string | null;
+    price: number;
     imageContent: string | null;
   }
   

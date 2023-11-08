@@ -14,6 +14,7 @@ import { HomeDescriptionResponseDTO } from 'src/app/shared/home/homeDescription_
 import { UserResponseDTO } from 'src/app/shared/user/user_ResponseDTO';
 import { PizzaType_ResponseDTO } from 'src/app/shared/proizvodi/pizzaType_ResponseDTO';
 import { PastaType_ResponseDTO } from 'src/app/shared/proizvodi/pastaType_ResponseDTO';
+import { TopProductsResponseDTO } from 'src/app/shared/proizvodi/topProducts_ResponseDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,11 @@ export class MasterService {
   GetPastaTypes():Observable<ServiceResponse<PastaType_ResponseDTO[]>>
   {
     return this.http.get<ServiceResponse<PastaType_ResponseDTO[]>>(URLs.Proizvodi.GetPastaTypes);
+  }
+
+  GetTopProducts():Observable<ServiceResponse<TopProductsResponseDTO>>
+  {
+    return this.http.get<ServiceResponse<TopProductsResponseDTO>>(URLs.Proizvodi.GetTopProducts);
   }
 
   GetVideo():Observable<ServiceResponse<string>>
