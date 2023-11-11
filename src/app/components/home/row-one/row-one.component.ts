@@ -29,7 +29,8 @@ export class RowOneComponent {
   }
   ngOnDestroy() {
     console.log("Unsubscribed!")
-    this.homeDescSub.unsubscribe();
+    this.homeDescSub?.unsubscribe();
+    
   }
 
   private handleHomeDescResponse(userResponse: ServiceResponse<HomeDescriptionResponseDTO[]>) {

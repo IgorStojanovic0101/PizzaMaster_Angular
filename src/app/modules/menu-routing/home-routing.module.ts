@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { MenuBarComponent } from 'src/app/components/menu-bar/menu-bar';
+import {  MenuComponent } from 'src/app/components/menu/menu.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { RestoranComponent } from 'src/app/components/restoran/restoran.component';
 
 const homeRoutes: Routes = [
   {
     path: "",
-    component: MenuBarComponent,
+    component: MenuComponent,
     children: [
       {
         path: "", // Empty path for "menu"

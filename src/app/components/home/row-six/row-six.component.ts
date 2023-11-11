@@ -29,7 +29,7 @@ export class RowSixComponent {
   }
   ngOnDestroy() {
     console.log("Unsubscribed!")
-    this.topProductsSub.unsubscribe();
+    this.topProductsSub?.unsubscribe();
   }
 
   private handleTopProductsResponse(userResponse: ServiceResponse<TopProductsResponseDTO>) {

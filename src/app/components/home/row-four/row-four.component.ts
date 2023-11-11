@@ -59,9 +59,9 @@ export class RowFourComponent {
 
   ngOnDestroy() {
     console.log("Unsubscribed!")
-    this.pasteSub.unsubscribe();
-    this.pizzaSub.unsubscribe();
-    this.combinedSub.unsubscribe();
+    this.pasteSub?.unsubscribe();
+    this.pizzaSub?.unsubscribe();
+    this.combinedSub?.unsubscribe();
 
   }
 

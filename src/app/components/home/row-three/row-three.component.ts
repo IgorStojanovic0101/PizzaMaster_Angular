@@ -28,7 +28,7 @@ export class RowThreeComponent {
   }
   ngOnDestroy() {
     console.log("Unsubscribed!")
-    this.topUserSub.unsubscribe();
+    this.topUserSub?.unsubscribe();
   }
 
   private handleTopUsersResponse(userResponse: ServiceResponse<UserResponseDTO[]>) {

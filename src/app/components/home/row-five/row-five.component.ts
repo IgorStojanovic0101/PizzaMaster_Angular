@@ -31,7 +31,7 @@ export class RowFiveComponent {
   }
   ngOnDestroy() {
     console.log("Unsubscribed!")
-    this.stringSub.unsubscribe();
+    this.stringSub?.unsubscribe();
   }
 
   private handleVideoResponse(response: ServiceResponse<string>) {

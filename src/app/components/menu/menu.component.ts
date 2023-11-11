@@ -8,73 +8,23 @@ import { RestoranResponseDTO } from 'src/app/shared/restoran/restoranResponseDTO
 
 @Component({
   selector: 'app-home',
-  templateUrl: './menu-bar.component.html',
-  styleUrls: ['./menu-bar.component.css'],
-  encapsulation: ViewEncapsulation.None, 
-  styles:[`
-
-.mat-form-field-infix
-  {
-     border-top : 0;
-     background-color:white;
-
-  }
-  .mat-sidenav
-  {
-  width: 25%;
-  background-color: blue;
-  position: fixed;
-  }
-  
-
-  
-`]
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class MenuBarComponent {
-
-  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
-  isExpanded = true;
-  showSubmenu: boolean = false;
-  isShowing = false;
-  showSubSubMenu: boolean = false;
-  opened = false;
+export class MenuComponent {
+  isExpanded = false;
 
 
 
-  stopSliding()
-  {
-    this.opened=!this.opened;
-    //console.log("Stop Sliding event");
-    //this.authome.ShowDownEvent();
-  }
 
-  
-  mouseenter() {
-    if (!this.isExpanded) {
-      this.isShowing = true;
-    }
-  }
-
-  mouseleave() {
-    if (!this.isExpanded) {
-      this.isShowing = false;
-    }
-  }
-
-  badgevisible = false;
-  badgevisibility() {
-    this.badgevisible = true;
-  }
-
-  parentFunction() {
-    // Implement the functionality you want to execute in the parent component.
-    console.log('Parent function was triggered by the child component');
-  }
-  @ViewChild('drawer') drawer: MatDrawer | undefined;
+@ViewChild('drawer') drawer: MatDrawer | undefined;
 
   toggleDrawer() {
     if (this.drawer) {
       this.drawer.toggle();
+      this.isExpanded = !this.isExpanded;
+
       }
     }
 

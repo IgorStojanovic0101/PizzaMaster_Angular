@@ -11,11 +11,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { MenuBarComponent } from './components/menu-bar/menu-bar';
+import { MenuComponent } from './components/menu/menu.component';
 import { TokenInterceptor } from './infrastructure/interceptors/token-interceptor.interceptor';
 import { ErrorInterceptor } from './infrastructure/interceptors/error.interceptor';
 import { HomeComponent } from './components/home/home.component';
-import { MenuBarToolbarComponent } from './components/menu-bar/menu-bar-toolbar/menu-bar-toolbar.component';
 import { BootstrapModule } from './modules/bootstrap/bootstrap.module';
 import { RowOneComponent } from './components/home/row-one/row-one.component';
 import { RowTwoComponent } from './components/home/row-two/row-two.component';
@@ -23,11 +22,12 @@ import { RowThreeComponent } from './components/home/row-three/row-three.compone
 import { RowFourComponent } from './components/home/row-four/row-four.component';
 import { RowFiveComponent } from './components/home/row-five/row-five.component';
 import { RowSixComponent } from './components/home/row-six/row-six.component';
-import { FooterComponent } from './components/menu-bar/footer/footer.component';
 import { RestoranComponent } from './components/restoran/restoran.component';
 import { LoaderInterceptor } from './infrastructure/interceptors/loader.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminComponent } from './components/admin/admin.component';
+import { FooterComponent } from './components/menu/footer/footer.component';
+import { HeaderComponent } from './components/menu/header/header.component';
 
 
 
@@ -36,10 +36,9 @@ import { AdminComponent } from './components/admin/admin.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MenuBarComponent,
-    MenuBarComponent,
+    MenuComponent,
     HomeComponent,
-    MenuBarToolbarComponent,
+    MenuComponent,
     RowOneComponent,
     RowTwoComponent,
     RowThreeComponent,
@@ -49,6 +48,7 @@ import { AdminComponent } from './components/admin/admin.component';
     FooterComponent,
     RestoranComponent,
     AdminComponent,
+    HeaderComponent,
     
   ],
   imports: [

@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { of, switchMap } from 'rxjs';
+import { Subscription, of, switchMap } from 'rxjs';
 import { Converter } from 'src/app/infrastructure/utilities/converter';
 import { MasterService } from 'src/app/services/master/master.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -20,6 +20,7 @@ import { UserRegisterResponseDTO } from 'src/app/shared/user/userRegisterRespons
 export class RegisterComponent {
   RegistrationForm:any =  FormGroup;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
+  private registerSub!: Subscription;
 
   fajl!: File;
 
@@ -62,7 +63,7 @@ export class RegisterComponent {
     
     console.log(formDataNew)
       
-      this.userService.UserRegister(formDataNew).pipe(
+    this.registerSub = this.userService.UserRegister(formDataNew).pipe(
         switchMap((response: ServiceResponse<UserRegisterResponseDTO>) => {
           if (!response) {
             return of(null);
@@ -80,6 +81,12 @@ export class RegisterComponent {
     }
   
   }
+  
+  ngOnDestroy() {
+    this.registerSub?.unsubscribe();
+  }
+  
+  
 
 
   ImageUpload(event: any) {

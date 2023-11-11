@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscription, map, of, switchMap, tap } from 'rxjs';
 import { MasterService } from 'src/app/services/master/master.service';
@@ -22,7 +22,7 @@ export class LoginComponent {
 
   private heroSub!: Subscription;
 
-  constructor(private userService:UserService,private fb:FormBuilder, private router:Router,private toastr: ToastrService) { }
+  constructor(private userService:UserService,private fb:FormBuilder, private router:Router,private toastr: ToastrService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.LoginForm = this.fb.group({
@@ -32,8 +32,7 @@ export class LoginComponent {
 
   }
   ngOnDestroy() {
-    console.log("Unsubscribed!")
-    this.heroSub.unsubscribe();
+    this.heroSub?.unsubscribe();
   }
   
 
@@ -58,8 +57,15 @@ export class LoginComponent {
       ).subscribe();
  
     }
+
+    
   
   }
+
+  goToRegister(){
+    this.router.navigate(['/auth/register']);
+  }    
+  
   transformUserResponse(userResponse: ServiceResponse<UserLoginResponseDTO> | null){
     this.usesponse = userResponse?.payload;
 
