@@ -3,31 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MasterService } from './services/master/master.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { MenuComponent } from './components/menu/menu.component';
 import { TokenInterceptor } from './infrastructure/interceptors/token-interceptor.interceptor';
 import { ErrorInterceptor } from './infrastructure/interceptors/error.interceptor';
-import { HomeComponent } from './components/home/home.component';
-import { BootstrapModule } from './modules/bootstrap/bootstrap.module';
-import { RowOneComponent } from './components/home/row-one/row-one.component';
-import { RowTwoComponent } from './components/home/row-two/row-two.component';
-import { RowThreeComponent } from './components/home/row-three/row-three.component';
-import { RowFourComponent } from './components/home/row-four/row-four.component';
-import { RowFiveComponent } from './components/home/row-five/row-five.component';
-import { RowSixComponent } from './components/home/row-six/row-six.component';
-import { RestoranComponent } from './components/restoran/restoran.component';
+
 import { LoaderInterceptor } from './infrastructure/interceptors/loader.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { AdminComponent } from './components/admin/admin.component';
-import { FooterComponent } from './components/menu/footer/footer.component';
-import { HeaderComponent } from './components/menu/header/header.component';
+import { BootstrapModule } from './infrastructure/modules/bootstrap/bootstrap.module';
+import { AdminComponent } from './presenter/components/admin/admin.component';
+import { HomeComponent } from './presenter/components/home/home.component';
+import { RowFiveComponent } from './presenter/components/home/row-five/row-five.component';
+import { RowFourComponent } from './presenter/components/home/row-four/row-four.component';
+import { RowOneComponent } from './presenter/components/home/row-one/row-one.component';
+import { RowSixComponent } from './presenter/components/home/row-six/row-six.component';
+import { RowThreeComponent } from './presenter/components/home/row-three/row-three.component';
+import { RowTwoComponent } from './presenter/components/home/row-two/row-two.component';
+import { FooterComponent } from './presenter/components/menu/footer/footer.component';
+import { HeaderComponent } from './presenter/components/menu/header/header.component';
+import { RestoranComponent } from './presenter/components/restoran/restoran.component';
+import { MaterialModule } from './infrastructure/modules/material/material.module';
+import { LoginComponent } from './presenter/components/login/login.component';
+import { MenuComponent } from './presenter/components/menu/menu.component';
+import { RegisterComponent } from './presenter/components/register/register.component';
+import { MasterService } from './presenter/services/master/master.service';
 
 
 

@@ -9,18 +9,18 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
-      import('./modules/auth-routing/auth-routing.module').then((m) => m.AuthRoutingModule),
+      import('./infrastructure/modules/auth-routing/auth-routing.module').then((m) => m.AuthRoutingModule),
   },
   {
     path: 'menu',
     loadChildren: () =>
-      import('./modules/menu-routing/home-routing.module').then((m) => m.HomeRoutingModule),
+      import('./infrastructure/modules/menu-routing/home-routing.module').then((m) => m.HomeRoutingModule),
 
   },
   {
     path: 'admin',
     loadChildren: () =>
-      import('./modules/admin-routing/admin-routing.module').then((m) => m.AdminRoutingModule),
+      import('./infrastructure/modules/admin-routing/admin-routing.module').then((m) => m.AdminRoutingModule),
 
   },
   
