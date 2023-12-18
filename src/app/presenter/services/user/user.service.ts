@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
-import { MasterService } from '../master/master.service';
+import { MasterService } from '../../../infrastructure/shared/master/master.service';
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
 import { UserLoginRequestDTO } from 'src/app/domain/shared/user/userLoginRequestDTO';
 import { UserLoginResponseDTO } from 'src/app/domain/shared/user/userLoginResponseDTO';

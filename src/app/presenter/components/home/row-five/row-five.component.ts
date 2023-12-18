@@ -41,7 +41,9 @@ export class RowFiveComponent {
     // Add an event listener for the loadedmetadata event
     this.videoPlayer.nativeElement.addEventListener('loadedmetadata', () => {
       // When metadata is loaded, trigger video playback
-      this.videoPlayer.nativeElement.play()});
+    //  this.videoPlayer.nativeElement.play()
+    
+    });
   }
 
   playVideo() {

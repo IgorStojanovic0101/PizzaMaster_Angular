@@ -4,34 +4,35 @@
 <mat-drawer-container autosize>
     <mat-drawer #drawer opened="true" mode="side" position="start" class="drawer">
     <mat-nav-list>
-        <mat-list-item>
-            <button routerLink="card" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button routerLink="home" mat-button><mat-icon>home</mat-icon> Home</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button routerLink="slider" mat-button><mat-icon>explore</mat-icon> Slider</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button routerLink="table" mat-button><mat-icon>table</mat-icon> Table</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button mat-button><mat-icon>settings</mat-icon> Settings</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button mat-button><mat-icon>help</mat-icon> Help</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
-        </mat-list-item>
-        <mat-list-item>
-            <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
-        </mat-list-item> <mat-list-item>
-            <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
-        </mat-list-item> <mat-list-item>
-            <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
-        </mat-list-item>
+        <mat-nav-list>
+            <mat-nav-list>
+                <ng-container *ngFor="let dropdown of headerDropdowns$ | async">
+                  <ng-container *ngIf="dropdown.dropItem_ResponseDTOs && dropdown.dropItem_ResponseDTOs.length > 0; else parentMenu">
+                    <!-- Parent menu with expansion panel -->
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-icon>{{ dropdown.dropdownImage }}</mat-icon> {{ dropdown.dropdownName }}
+                      </mat-expansion-panel-header>
+                      <mat-nav-list>
+                        <!-- Child menu with dropdown items -->
+                        <mat-list-item *ngFor="let dropItem of dropdown.dropItem_ResponseDTOs">
+                          <button mat-button>{{ dropItem.dropItemName }}</button>
+                        </mat-list-item>
+                      </mat-nav-list>
+                    </mat-expansion-panel>
+                  </ng-container>
+              
+                  <!-- Parent menu without expansion panel -->
+                  <ng-template #parentMenu>
+                    <mat-list-item>
+                      <button mat-button>
+                        <mat-icon>{{ dropdown.dropdownImage }}</mat-icon> {{ dropdown.dropdownName }}
+                      </button>
+                    </mat-list-item>
+                  </ng-template>
+                </ng-container>
+              </mat-nav-list>
+          </mat-nav-list>
     </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content>

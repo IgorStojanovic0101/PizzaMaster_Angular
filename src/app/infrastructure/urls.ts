@@ -45,5 +45,13 @@ export class URLs
             GetTopProducts: `${pref}/GetTopProducts`
           };
     }
+    public static get Dropdown() {
+        const pref = `${URLs.ApiUrl}/Dropdown`;
+        return {  
+            GetAllDropdownData: `${pref}/GetAllDropdownData`
+           
+          };
+    }
+    
    
 }

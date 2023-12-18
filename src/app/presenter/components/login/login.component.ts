@@ -82,7 +82,9 @@ export class LoginComponent {
 
     if (!userResponse.validation) {
       localStorage.setItem('token', userResponse.payload.token);
-      this.toastr.success('Uspesno');
+      this.toastr.success('Uspesno logovanje');
+      this.router.navigate(['/menu']);
+
     } else {
       this.toastr.warning('Validacija', userResponse.errors.join('\n'));
     }

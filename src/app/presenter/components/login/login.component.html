@@ -1,29 +1,27 @@
 <div class="login-container">
-    <div class="login-content">
-      <div class="login-form">
-        <h2>Login</h2>
-        <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-          <div class="input-group">
-            <input type="text" id="username" name="username" placeholder="Username" formControlName="username" required>
-            <span class="input-icon">
-              <i class="fas fa-user"></i>
-            </span>
-          </div>
-          <div class="input-group">
-            <input type="password" id="password" name="password" placeholder="Password" formControlName="password" required>
-            <span class="input-icon">
-              <i class="fas fa-lock"></i>
-            </span>
-          </div>
-          <button type="submit">Login</button>
-
-        </form>
-        <button (click)="goToRegister()" class="btn btn-primary btn-block text-uppercase">SIGN UP</button>
-
-      </div>
-      <div class="pizza-image">
-        <img src="/assets/images/pizza.jpg" alt="Pizza Image">
-      </div>
+  <div class="login-content">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <input type="text" id="username" name="username" placeholder="Username" formControlName="username" required>
+          <span class="input-icon">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" name="password" placeholder="Password" formControlName="password" required>
+          <span class="input-icon">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+     <br>
+      <button (click)="goToRegister()" class="btn btn-primary btn-block text-uppercase">SIGN UP</button>
+    </div>
+    <div class="pizza-image">
+      <img src="/assets/images/pizza.jpg" alt="Pizza Image">
     </div>
   </div>
-  
+</div>

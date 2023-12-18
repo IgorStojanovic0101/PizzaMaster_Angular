@@ -28,7 +28,7 @@ import { MaterialModule } from './infrastructure/modules/material/material.modul
 import { LoginComponent } from './presenter/components/login/login.component';
 import { MenuComponent } from './presenter/components/menu/menu.component';
 import { RegisterComponent } from './presenter/components/register/register.component';
-import { MasterService } from './presenter/services/master/master.service';
+import { MasterService } from './infrastructure/shared/master/master.service';
 
 
 

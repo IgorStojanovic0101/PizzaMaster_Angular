@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Admin_ResponseDTO } from 'src/app/domain/shared/admin/admin_ResponseDTO';
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
-import { MasterService } from '../master/master.service';
+import { MasterService } from '../../../infrastructure/shared/master/master.service';
 
 
 @Injectable({

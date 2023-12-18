@@ -13,6 +13,7 @@ import { UserLoginRequestDTO } from 'src/app/domain/shared/user/userLoginRequest
 import { UserLoginResponseDTO } from 'src/app/domain/shared/user/userLoginResponseDTO';
 import { UserRegisterResponseDTO } from 'src/app/domain/shared/user/userRegisterResponseDTO';
 import { UserResponseDTO } from 'src/app/domain/shared/user/user_ResponseDTO';
+import { Dropdown_ResponseDTO } from 'src/app/domain/shared/dropdown/dropdown_ResponseDTO';
 
 
 @Injectable({
@@ -26,11 +27,8 @@ export class MasterService {
 
 
   login(dto: UserLoginRequestDTO): Observable<ServiceResponse<UserLoginResponseDTO>> {
-    const formData = new FormData();
-    formData.append('username', dto.username);
-    formData.append('password', dto.password);
-
-    return this.http.post<ServiceResponse<UserLoginResponseDTO>>(URLs.User.Login, formData);
+    
+    return this.http.post<ServiceResponse<UserLoginResponseDTO>>(URLs.User.Login, dto);
   }
 
   register(formData: FormData): Observable<ServiceResponse<UserRegisterResponseDTO>> {
@@ -40,6 +38,10 @@ export class MasterService {
   
   GetAllRestorans(): Observable<ServiceResponse<RestoranResponseDTO[]>> {
     return this.http.get<ServiceResponse<RestoranResponseDTO[]>>(URLs.Restoran.ListaRestorana);
+  }
+
+  GetAllHeaderDropdowns(): Observable<ServiceResponse<Dropdown_ResponseDTO[]>> {
+    return this.http.get<ServiceResponse<Dropdown_ResponseDTO[]>>(URLs.Dropdown.GetAllDropdownData);
   }
 
   SetAdminImport<Admin_ResponseDTO>(val: FormData): Observable<ServiceResponse<Admin_ResponseDTO>> {

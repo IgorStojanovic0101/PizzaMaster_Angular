@@ -8,51 +8,37 @@
         </button>
         <span>Material UI Tutorial</span>
     
-        <div *ngIf="(restorans$ | async) as restorans" style="display: flex; padding-left: 2%;" >
-            <div class="btn-group me-3">
-              <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-light ime" ngbDropdownToggle> <i class="fa fa-list"></i> Restorans </button>
-                <div class="dropdown-menu" ngbDropdownMenu>
-                  <button ngbDropdownItem *ngFor="let item of restorans" class="dropdown-item d-flex align-items-center py-2">  {{item.restoranIme}} </button>
-                </div>
+        <div *ngIf="(headerDropdowns$ | async) as headerDropdowns" style="display: flex; padding-left: 2%;">
+          <div class="btn-group me-3" *ngFor="let dd of headerDropdowns">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-light" ngbDropdownToggle>
+                <i class="fa fa-list"></i> {{ dd.dropdownName }}
+              </button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem *ngFor="let dropItem of dd.dropItem_ResponseDTOs" class="dropdown-item d-flex align-items-center py-2">
+                  {{ dropItem.dropItemName }}
+                </button>
               </div>
             </div>
           </div>
+        </div>
         <span class="example-spacer"></span>
-        <button routerLink="" mat-button>Home</button>
-        <button [matMenuTriggerFor]="lvl1master" mat-button>Master</button>
-        <mat-menu #lvl1master="matMenu">
-            <button [matMenuTriggerFor]="company" mat-menu-item>Company</button>
-            <button [matMenuTriggerFor]="customer" mat-menu-item>Customer</button>
-            <button [matMenuTriggerFor]="product" mat-menu-item>Product</button>
-        </mat-menu>
+  
+      
+  
+   
+          <div *ngIf="(authData$ | async) as authData; else showLogin">
+            <div style="display: flex; align-items: center;">
+              <p style="margin-right: 10px;">Hello, {{ authData.username }}</p>
+              <button (click)="logOut()">LogOut</button>
+            </div>
+          </div>
+          <ng-template #showLogin>
+            <button (click)="login()">Login</button>
+          </ng-template>
     
-        <mat-menu #company="matMenu">
-            <button mat-menu-item>Term</button>
-            <button mat-menu-item>Tax</button>
-            <button mat-menu-item>Currency</button>
-        </mat-menu>
-        <mat-menu #customer="matMenu">
-            <button mat-menu-item>Type</button>
-            <button mat-menu-item>Tax</button>
-        </mat-menu>
-        <mat-menu #product="matMenu">
-            <button mat-menu-item>Category</button>
-            <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
-            <button mat-menu-item>UOM</button>
-        </mat-menu>
     
-        <mat-menu #variant="matMenu">
-            <button mat-menu-item>Color</button>
-            <button mat-menu-item>Size</button>
-        </mat-menu>
     
-        <button routerLink="input" mat-button>Input</button>
-        <button routerLink="autocomplete" mat-button>Autocomplete</button>
-        <a href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join" mat-raised-button color="accent">Join Us</a>
-        <button (click)="badgevisibility()"  mat-icon-button>
-            <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
-        </button>
         </mat-toolbar-row>
     
     
