@@ -12,7 +12,7 @@ const routes: Routes = [
       import('./infrastructure/modules/auth-routing/auth-routing.module').then((m) => m.AuthRoutingModule),
   },
   {
-    path: 'menu',
+    path: 'app',
     loadChildren: () =>
       import('./infrastructure/modules/menu-routing/home-routing.module').then((m) => m.HomeRoutingModule),
 

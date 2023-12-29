@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "PizzaMaster": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "sr": { "translation":"src/app/persistence/locale/messages.sr.xlf", "baseHref": "sr/"}
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -12,7 +18,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
+          "options": {   
+            "localize" : [ "sr" ],         
             "outputPath": "dist/pizza-master",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +41,7 @@
             "scripts": []
           },
           "configurations": {
+            
             "production": {
               "budgets": [
                 {

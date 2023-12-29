@@ -4,27 +4,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from 'src/app/presenter/components/home/home.component';
 import { MenuComponent } from 'src/app/presenter/components/menu/menu.component';
 import { RestoranComponent } from 'src/app/presenter/components/restoran/restoran.component';
+import { AppComponent } from 'src/app/presenter/components/menu/app/app.component';
 
 
 const homeRoutes: Routes = [
-  {
-    path: "",
-    component: MenuComponent,
-    children: [
-      {
-        path: "", // Empty path for "menu"
-        pathMatch: "full", // Redirect only if the path is empty
-        redirectTo: "home"
-      },
-      {
-        path: "home",
-        component: HomeComponent,
-      },
-      {
-        path: "restoran", component: RestoranComponent,
-      }
-    ]
-  }
+  // {
+  //   path: "",
+  //   component: AppComponent,
+  //   children: [
+  //     {
+  //       path: "", // Empty path for "menu"
+  //       pathMatch: "full", // Redirect only if the path is empty
+  //       redirectTo: "home"
+  //     },
+  //     {
+  //       path: "home",component: HomeComponent,
+  //     },
+  //     {
+  //       path: "restoran", component: RestoranComponent,
+  //     }
+  //   ]
+  // }
+
+  {  path: "home",component: HomeComponent },
+  { path: 'restoran', component: RestoranComponent },
+  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 

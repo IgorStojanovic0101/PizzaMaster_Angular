@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IAuthData } from 'src/app/domain/shared/authData/IAuthData';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -25,6 +26,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
    
+    // this.localizationService.currentLanguage$.subscribe((language) => {
+    //   console.log(language)
+    //  // this.translate.use(language);
+    // });
    this.homeService.GetAllRestorans().pipe(
        tap((response =>this.restorans$ = of(response.payload))),
      
@@ -52,11 +57,15 @@ export class HeaderComponent implements OnInit {
 
   }
 
+
+  switchLanguage(language: string) {
+    //this.localizationService.setLanguage(language);
+  }
   logOut()
   {
     localStorage.removeItem('token');
 
-    window.location.reload();
+    this.router.navigate(['auth/login']);
 
   }
   badgevisible = false;

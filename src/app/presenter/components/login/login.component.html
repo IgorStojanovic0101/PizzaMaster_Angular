@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="login-content">
     <div class="login-form">
-      <h2>Login</h2>
+      <h2 i18n>Login</h2>
       <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
         <div class="input-group">
           <input type="text" id="username" name="username" placeholder="Username" formControlName="username" required>
@@ -15,7 +15,7 @@
             <i class="fas fa-lock"></i>
           </span>
         </div>
-        <button type="submit">Login</button>
+        <button i18n type="submit">Login</button>
       </form>
      <br>
       <button (click)="goToRegister()" class="btn btn-primary btn-block text-uppercase">SIGN UP</button>

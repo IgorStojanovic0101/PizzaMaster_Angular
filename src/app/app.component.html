@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<app-header (triggerParent)="toggleDrawer()"></app-header>
+
+          
+<app-menu [isDrawerOpen]="isExpanded"></app-menu>
+<app-footer></app-footer>
