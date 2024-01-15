@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable, Subscription, of, tap } from 'rxjs';
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
 import { UserResponseDTO } from 'src/app/domain/shared/user/user_ResponseDTO';
-import { UserService } from 'src/app/presenter/services/user/user.service';
+import { UserService } from 'src/app/presentation/services/user/user.service';
 
 
 @Component({

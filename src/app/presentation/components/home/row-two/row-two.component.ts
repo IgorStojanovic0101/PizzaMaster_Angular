@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable, Subscription, tap, of } from 'rxjs';
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
 import { HomeDescriptionResponseDTO } from 'src/app/domain/shared/home/homeDescription_ResponseDTO';
-import { HomeService } from 'src/app/presenter/services/home/home.service';
+import { HomeService } from 'src/app/presentation/services/home/home.service';
 
 
 @Component({

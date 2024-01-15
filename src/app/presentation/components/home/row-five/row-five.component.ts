@@ -2,7 +2,7 @@ import { Component, ElementRef,ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Observable, Subscription, tap, of } from 'rxjs';
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
-import { HomeService } from 'src/app/presenter/services/home/home.service';
+import { HomeService } from 'src/app/presentation/services/home/home.service';
 
 
 @Component({

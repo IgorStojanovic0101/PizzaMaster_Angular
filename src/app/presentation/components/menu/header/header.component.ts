@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable} from 'rxjs';
 import { Dropdown_ResponseDTO } from 'src/app/domain/shared/dropdown/dropdown_ResponseDTO';
 import { RestoranResponseDTO } from 'src/app/domain/shared/restoran/restoranResponseDTO';
-import { HomeService } from 'src/app/presenter/services/home/home.service';
+import { HomeService } from 'src/app/presentation/services/home/home.service';
 
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';

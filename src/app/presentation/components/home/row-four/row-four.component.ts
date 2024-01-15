@@ -3,7 +3,7 @@ import { Observable, Subscription, tap, of, combineLatest, switchMap, forkJoin }
 import { ServiceResponse } from 'src/app/domain/shared/client/serviceResponse';
 import { PastaType_ResponseDTO } from 'src/app/domain/shared/proizvodi/pastaType_ResponseDTO';
 import { PizzaType_ResponseDTO } from 'src/app/domain/shared/proizvodi/pizzaType_ResponseDTO';
-import { ProizvodiService } from 'src/app/presenter/services/proizvodi/proizvodi.service';
+import { ProizvodiService } from 'src/app/presentation/services/proizvodi/proizvodi.service';
 
 
 @Component({
